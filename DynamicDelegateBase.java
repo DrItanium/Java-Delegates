@@ -25,13 +25,13 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
-public abstract class DynamicDelegateBase extends Hashtable<String, Object> implements IDynamicDelegate {
+public abstract class DynamicDelegateBase extends Hashtable<String, Object> implements DynamicDelegate {
 
 	public DynamicDelegateBase() {
 		initVariables();
 	}
 
-	public DynamicDelegateBase(IDynamicDelegate b) {
+	public DynamicDelegateBase(DynamicDelegate b) {
 		this();
 		Set<String> keys = b.names();
 		for (String str : keys) {
@@ -100,7 +100,7 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
 		}
 	}
 
-	public abstract IDynamicDelegate copy();
+	public abstract DynamicDelegate copy();
 	public abstract Object clone();
 
 	public Set<String> getNames() {
