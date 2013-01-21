@@ -24,35 +24,28 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package functions;
-public class NonLocalClosedVariable<T> extends ClosedVariable<ClosedVariable<T>>
-{
-	public T getActualValue()
-	{
+public class NonLocalClosedVariable<T> extends ClosedVariable<ClosedVariable<T>> {
+	public T getActualValue() {
 		return getValue().getValue();
 	}
 
-	public void setActualValue(T value)
-	{
+	public void setActualValue(T value) {
 		getValue().setValue(value);
 	}
 
-	public NonLocalClosedVariable(ClosedVariable<T> innerVar)
-	{
+	public NonLocalClosedVariable(ClosedVariable<T> innerVar) {
 		super(innerVar);
 	}
 
-	public NonLocalClosedVariable()
-	{
+	public NonLocalClosedVariable() {
 		this((T) new Object());
 	}
 
-	public NonLocalClosedVariable(NonLocalClosedVariable<T> other)
-	{
+	public NonLocalClosedVariable(NonLocalClosedVariable<T> other) {
 		this(new ClosedVariable(other.innerClosure()));
 	}
 
-	public NonLocalClosedVariable(T value)
-	{
+	public NonLocalClosedVariable(T value) {
 		this(new ClosedVariable<T>(value));
 	}
 }

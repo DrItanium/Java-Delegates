@@ -24,26 +24,20 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package functions;
-public class DynamicVariableReadonlyException extends Exception
-{
-	public DynamicVariableReadonlyException()
-	{
+public class DynamicVariableReadonlyException extends Exception {
+	public DynamicVariableReadonlyException() {
 		super();
 	}
 
-	public DynamicVariableReadonlyException(String message)
-	{
+	public DynamicVariableReadonlyException(String message) {
 		super(message);
 	}
 
-	public DynamicVariableReadonlyException(Throwable cause)
-	{
+	public DynamicVariableReadonlyException(Throwable cause) {
 		super(cause);
-
 	}
 
-	public DynamicVariableReadonlyException(String message, Throwable cause)
-	{
+	public DynamicVariableReadonlyException(String message, Throwable cause) {
 		super(message, cause);
 	}
 }

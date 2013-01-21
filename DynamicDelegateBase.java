@@ -25,36 +25,27 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
-public abstract class DynamicDelegateBase extends Hashtable<String, Object> implements IDynamicDelegate
-{
-	public DynamicDelegateBase()
-	{
+public abstract class DynamicDelegateBase extends Hashtable<String, Object> implements IDynamicDelegate {
+
+	public DynamicDelegateBase() {
 		initVariables();
 	}
 
-	public DynamicDelegateBase(IDynamicDelegate b)
-	{
+	public DynamicDelegateBase(IDynamicDelegate b) {
 		this();
 		Set<String> keys = b.names();
-		for (String str : keys)
-		{
+		for (String str : keys) {
 			Object var = b.getDynamicVariable(str);
-			if (var == null) //null check...just in case
-			{
+			if (var == null) //null check...just in case {
 				put(str, null);
 			}
-			if (var instanceof NonLocalClosedVariable)
-			{
+			if (var instanceof NonLocalClosedVariable) {
 				NonLocalClosedVariable v = new NonLocalClosedVariable((NonLocalClosedVariable) var);
 				put(str, v);
-			}
-			else if (var instanceof ClosedVariable)
-			{
+			} else if (var instanceof ClosedVariable) {
 				ClosedVariable v = new ClosedVariable((ClosedVariable) var);
 				put(str, v);
-			}
-			else
-			{
+			} else {
 				put(str, var);
 			}
 		}
@@ -62,10 +53,8 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
 
 	protected abstract void initVariables();
 
-	public boolean registerDynamicVariable(String name, Object value, boolean readonly)
-	{
-		if (dynamicVariableExists(name))
-		{
+	public boolean registerDynamicVariable(String name, Object value, boolean readonly) {
+		if (dynamicVariableExists(name)) {
 			return false;
 		}
 		Object var = readonly ? new ClosedVariable(value) : new NonLocalClosedVariable(value);
@@ -73,57 +62,40 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
 		return true;
 	}
 
-	public boolean dynamicVariableExists(String name)
-	{
+	public boolean dynamicVariableExists(String name) {
 		return containsKey(name);
 	}
 
-	private boolean isReadonly(String name)
-	{
-		try
-		{
+	private boolean isReadonly(String name) {
+		try {
 			Object value = getDynamicVariable(name);
 			return !(value instanceof NonLocalClosedVariable);
-		}
-		catch (NoSuchElementException n)
-		{
+		} catch (NoSuchElementException n) {
 			return false;
 		}
 	}
 
-	public void setDynamicVariable(String name, Object value) throws DynamicVariableReadonlyException
-	{
-		if (!isReadonly(name))
-		{
+	public void setDynamicVariable(String name, Object value) throws DynamicVariableReadonlyException {
+		if (!isReadonly(name)) {
 			NonLocalClosedVariable oldValue = (NonLocalClosedVariable) getDynamicVariable(name);
 			oldValue.actualValue(value);
-		}
-		else
-		{
+		} else {
 			throw new DynamicVariableReadonlyException();
 		}
 	}
 
-	public Object getDynamicVariable(String name)
-	{
-		if (!containsKey(name))
-		{
+	public Object getDynamicVariable(String name) {
+		if (!containsKey(name)) {
 			throw new NoSuchElementException("The provided key " + name + " does not exist.");
-		}
-		else
-		{
+		} else {
 			return get(name);
 		}
 	}
 
-	public <T> T getDynamicVariableAsType(String name)
-	{
-		if (!containsKey(name))
-		{
+	public <T> T getDynamicVariableAsType(String name) {
+		if (!containsKey(name)) {
 			throw new NoSuchElementException("The provided key " + name + " does not exist.");
-		}
-		else
-		{
+		} else {
 			return (T)as(get(name));
 		}
 	}
@@ -131,8 +103,7 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
 	public abstract IDynamicDelegate copy();
 	public abstract Object clone();
 
-	public Set<String> getNames()
-	{
+	public Set<String> getNames() {
 		return super.keySet();
 	}
 }

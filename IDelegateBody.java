@@ -25,8 +25,7 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
-interface IDelegateBody<T>
-{
+public interface IDelegateBody<T> {
 	void returnContainer(NonLocalClosedVariable<T> returnContainer);
 	public NonLocalClosedVariable<T> returnContainer();
 	public Object invoke(IDynamicDelegate localVariables);

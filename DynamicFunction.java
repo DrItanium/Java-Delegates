@@ -25,76 +25,63 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
-public class DynamicFunction<T> implements Runnable
-{
+public class DynamicFunction<T> implements Runnable {
 
 	private IDelegateBody<T> body;
 	private IDelegate functor;
 	private Object[] arguments;
 
-	public NonLocalClosedVariable<T> getReturnContainer()
-	{
+	public NonLocalClosedVariable<T> getReturnContainer() {
 		return body.getReturnContainer();
 	}
 
-	public void setReturnContainer(NonLocalClosedVariable<T> returnContainer)
-	{
+	public void setReturnContainer(NonLocalClosedVariable<T> returnContainer) {
 		body.setReturnContainer(returnContainer);
 	}
 
-	public IDelegate getFunctor()
-	{
+	public IDelegate getFunctor() {
 		return functor;
 	}
 
-	public void setFunctor(IDelegate functor)
-	{
+	public void setFunctor(IDelegate functor) {
 		this.functor = functor;
 	}
-	public IDelegateBody<T> getBody()
-	{
+	public IDelegateBody<T> getBody() {
 		return body;
 	}
 
-	public void setBody(IDelegateBody<T> body)
-	{
+	public void setBody(IDelegateBody<T> body) {
 		this.body = body;
 	}
 
-	public T getReturnContainerValue()
-	{
+	public T getReturnContainerValue() {
 		return getReturnContainer().getActualValue();
 	}
 
-	public Object[] getArguments()
-	{
+	public Object[] getArguments() {
 		return arguments;
 	}
 
-	public void setArguments(Object[] arguments)
-	{
+	public void setArguments(Object[] arguments) {
 		this.arguments = arguments;
 	}
 
-	public DynamicFunction(IDelegateBody<T> body, String[] variables, NonLocalClosedVariable<T> returnContainer)
-	{
+	public DynamicFunction(IDelegateBody<T> body, String[] variables, 
+			NonLocalClosedVariable<T> returnContainer) {
 		getBody(body);
 		getFunctor(defun(variables(variables), body));
 		getReturnContainer(returnContainer);
 	}
 
-	public DynamicFunction(IDelegateBody<T> body, String[] variables)
-	{
+	public DynamicFunction(IDelegateBody<T> body, String[] variables) {
 		this(body, variables, new NonLocalClosedVariable<T>());
 	}
 
-	public Object invoke(Object[] args)
-	{
+	public Object invoke(Object[] args) {
 		return functor.invoke(args);
 	}
 
-	public void run()
-	{
+	public void run() {
 		functor.run();
 	}
 }

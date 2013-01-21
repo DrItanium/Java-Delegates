@@ -24,34 +24,28 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package functions;
-public class ClosedVariable<T>
-{
+public class ClosedVariable<T> {
 
 	private T value;
 
-	public T getValue()
-	{
+	public T getValue() {
 		return value;
 	}
 
-	public void setValue(T value)
-	{
+	public void setValue(T value) {
 		this.value = value;
 	}
 
-	public ClosedVariable(T value)
-	{
+	public ClosedVariable(T value) {
 		setValue(value);
 	}
 
-	public ClosedVariable(ClosedVariable<T> other)
-	{
+	public ClosedVariable(ClosedVariable<T> other) {
 		this(other.value());
 	}
 
 	@Override
-		public String toString()
-		{
-			return value == null ? super.toString() : value.toString();
-		}
+	public String toString() {
+	   return value == null ? super.toString() : value.toString();
+	}
 }

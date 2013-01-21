@@ -25,8 +25,7 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
-public interface IDynamicDelegate extends IDelegate, Cloneable
-{
+public interface IDynamicDelegate extends IDelegate, Cloneable {
 	public boolean registerDynamicVariable(String name, Object value, boolean readonly);
 	public boolean dynamicVariableExists(String name);
 	public void setDynamicVariable(String name, Object value) throws DynamicVariableReadonlyException;
