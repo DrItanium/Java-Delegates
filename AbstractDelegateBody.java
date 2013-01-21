@@ -25,7 +25,7 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 import java.util.*;
-public abstract class DelegateBody<T> implements IDelegateBody<T> {
+public abstract class AbstractDelegateBody<T> implements DelegateBody<T> {
 
 	private NonLocalClosedVariable<T> returnContainer;
 
@@ -37,17 +37,17 @@ public abstract class DelegateBody<T> implements IDelegateBody<T> {
 		this.returnContainer = returnContainer;
 	}
 
-	public DelegateBody(NonLocalClosedVariable<T> returnValue) {
+	public AbstractDelegateBody(NonLocalClosedVariable<T> returnValue) {
 		setReturnContainer(returnValue);
 	}
 
-	public DelegateBody() {
+	public AbstractDelegateBody() {
 		this(null);
 	}
 
-	public abstract Object invoke(IDynamicDelegate localVariables);
+	public abstract Object invoke(DynamicDelegate localVariables);
 
-	public void run(IDynamicDelegate localVariables) {
+	public void run(DynamicDelegate localVariables) {
 		if (returnContainer == null) {
 			invoke(localVariables);
 		} else {
