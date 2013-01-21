@@ -25,16 +25,16 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
-public interface IDynamicDelegate extends IDelegate, Cloneable {
+public interface DynamicDelegate extends Delegate, Cloneable {
 	public boolean registerDynamicVariable(String name, Object value, boolean readonly);
 	public boolean dynamicVariableExists(String name);
 	public void setDynamicVariable(String name, Object value) throws DynamicVariableReadonlyException;
 	public Object getDynamicVariable(String name);
 	public <T> T getDynamicVariableAsType(String name);
-	public Object invoke(IDynamicDelegate localVariables, Object[] input);
-	public Object invoke(IDynamicDelegate localVariables);
+	public Object invoke(DynamicDelegate localVariables, Object[] input);
+	public Object invoke(DynamicDelegate localVariables);
 	public Object invoke();
-	public IDynamicDelegate copy();
+	public DynamicDelegate copy();
 	public Set<String> names();
-	public void run(IDynamicDelegate localVariables);
+	public void run(DynamicDelegate localVariables);
 }
