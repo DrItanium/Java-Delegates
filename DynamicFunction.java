@@ -27,8 +27,8 @@ package functions;
 
 public class DynamicFunction<T> implements Runnable {
 
-	private IDelegateBody<T> body;
-	private IDelegate functor;
+	private DelegateBody<T> body;
+	private Delegate functor;
 	private Object[] arguments;
 
 	public NonLocalClosedVariable<T> getReturnContainer() {
@@ -39,18 +39,19 @@ public class DynamicFunction<T> implements Runnable {
 		body.setReturnContainer(returnContainer);
 	}
 
-	public IDelegate getFunctor() {
+	public Delegate getFunctor() {
 		return functor;
 	}
 
-	public void setFunctor(IDelegate functor) {
+	public void setFunctor(Delegate functor) {
 		this.functor = functor;
 	}
-	public IDelegateBody<T> getBody() {
+
+	public DelegateBody<T> getBody() {
 		return body;
 	}
 
-	public void setBody(IDelegateBody<T> body) {
+	public void setBody(DelegateBody<T> body) {
 		this.body = body;
 	}
 
@@ -66,14 +67,14 @@ public class DynamicFunction<T> implements Runnable {
 		this.arguments = arguments;
 	}
 
-	public DynamicFunction(IDelegateBody<T> body, String[] variables, 
+	public DynamicFunction(DelegateBody<T> body, String[] variables, 
 			NonLocalClosedVariable<T> returnContainer) {
 		getBody(body);
 		getFunctor(defun(variables(variables), body));
 		getReturnContainer(returnContainer);
 	}
 
-	public DynamicFunction(IDelegateBody<T> body, String[] variables) {
+	public DynamicFunction(DelegateBody<T> body, String[] variables) {
 		this(body, variables, new NonLocalClosedVariable<T>());
 	}
 
