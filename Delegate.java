@@ -25,7 +25,7 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
-public interface IDelegate extends Runnable {
+public interface Delegate extends Runnable {
 	public Object invoke(Object[] input);
 }
 
