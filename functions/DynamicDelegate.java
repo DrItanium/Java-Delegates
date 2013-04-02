@@ -37,6 +37,6 @@ public interface DynamicDelegate extends Delegate, Cloneable {
 	public Object invoke(DynamicDelegate localVariables);
 	public Object invoke();
 	public DynamicDelegate copy();
-	public Set<String> names();
+	public Set<String> getNames();
 	public void run(DynamicDelegate localVariables);
 }

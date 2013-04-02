@@ -36,7 +36,7 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
 
    public DynamicDelegateBase(DynamicDelegate b) {
       this();
-      Set<String> keys = b.names();
+      Set<String> keys = b.getNames();
       for (String str : keys) {
          Object var = b.getDynamicVariable(str);
          //null check just in case
