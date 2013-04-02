@@ -26,6 +26,7 @@
 package functions;
 
 import java.util.*;
+import static functions.FunctionalOperations.*;
 
 public abstract class DynamicDelegateBase extends Hashtable<String, Object> implements DynamicDelegate {
 
@@ -81,7 +82,7 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
    public void setDynamicVariable(String name, Object value) throws DynamicVariableReadonlyException {
       if (!isReadonly(name)) {
          NonLocalClosedVariable oldValue = (NonLocalClosedVariable) getDynamicVariable(name);
-         oldValue.actualValue(value);
+         oldValue.setActualValue(value);
       } else {
          throw new DynamicVariableReadonlyException();
       }

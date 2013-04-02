@@ -25,7 +25,8 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 import java.util.*;
-import static functions.FunctionalOperators.*;
+import static functions.FunctionalOperations.*;
+
 public abstract class AbstractDelegateBody<T> implements DelegateBody<T> {
 
 	private NonLocalClosedVariable<T> returnContainer;

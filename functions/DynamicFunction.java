@@ -24,6 +24,7 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package functions;
+import static functions.FunctionalOperations.*;
 
 public class DynamicFunction<T> implements Runnable {
 
@@ -69,9 +70,9 @@ public class DynamicFunction<T> implements Runnable {
 
 	public DynamicFunction(DelegateBody<T> body, String[] variables, 
 			NonLocalClosedVariable<T> returnContainer) {
-		getBody(body);
-		getFunctor(defun(variables(variables), body));
-		getReturnContainer(returnContainer);
+		setBody(body);
+		setFunctor(defun(variables(variables), body));
+		setReturnContainer(returnContainer);
 	}
 
 	public DynamicFunction(DelegateBody<T> body, String[] variables) {

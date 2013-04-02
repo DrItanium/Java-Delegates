@@ -42,7 +42,7 @@ public class NonLocalClosedVariable<T> extends ClosedVariable<ClosedVariable<T>>
 	}
 
 	public NonLocalClosedVariable(NonLocalClosedVariable<T> other) {
-		this(new ClosedVariable(other.innerClosure()));
+		this(new ClosedVariable(other.getValue()));
 	}
 
 	public NonLocalClosedVariable(T value) {
