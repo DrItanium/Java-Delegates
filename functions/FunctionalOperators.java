@@ -152,7 +152,7 @@ public class FunctionalOperations {
 							}
 						@Override
 						public Object clone() {
-							return _fn.value().clone();
+							return _fn.getValue().clone();
 						}
 
 						public Object invoke(DynamicDelegate localVariables, Object[] input) {
@@ -257,7 +257,7 @@ public class FunctionalOperations {
 	}
 
 	public static <T> void setNonLocalVariable(ClosedVariable<ClosedVariable<T>> target, T value) {
-		ClosedVariable<T> inner = target.value();
+		ClosedVariable<T> inner = target.getValue();
 		setClosedVariable(inner, value);
 	}
 }
