@@ -25,6 +25,8 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
+import java.util.*;
+
 public abstract class DynamicDelegateBase extends Hashtable<String, Object> implements DynamicDelegate {
 
    public DynamicDelegateBase() {
