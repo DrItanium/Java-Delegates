@@ -41,7 +41,7 @@ public class ClosedVariable<T> {
 	}
 
 	public ClosedVariable(ClosedVariable<T> other) {
-		this(other.value());
+		this(other.getValue());
 	}
 
 	@Override
