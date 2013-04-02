@@ -176,7 +176,7 @@ public class FunctionalOperations {
 						}
 
 						public void run(DynamicDelegate localVariables) {
-							_fn.getValue(this);
+							_fn.setValue(this);
 						}
 					};
 				}
