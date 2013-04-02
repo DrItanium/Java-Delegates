@@ -25,6 +25,8 @@
 //or implied, of Joshua Scoggins. 
 package functions;
 
+import java.util.*;
+
 public interface DynamicDelegate extends Delegate, Cloneable {
 	public boolean registerDynamicVariable(String name, Object value, boolean readonly);
 	public boolean dynamicVariableExists(String name);
