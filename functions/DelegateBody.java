@@ -26,8 +26,8 @@
 package functions;
 
 public interface DelegateBody<T> {
-	void returnContainer(NonLocalClosedVariable<T> returnContainer);
-	public NonLocalClosedVariable<T> returnContainer();
+	void setReturnContainer(NonLocalClosedVariable<T> returnContainer);
+	public NonLocalClosedVariable<T> getReturnContainer();
 	public Object invoke(DynamicDelegate localVariables);
 	public void run(DynamicDelegate localVariables);
 }
