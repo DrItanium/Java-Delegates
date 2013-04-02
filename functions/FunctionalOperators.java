@@ -253,7 +253,7 @@ public class FunctionalOperations {
 	}
 
 	public static <T> void setClosedVariable(ClosedVariable<T> var, T newValue) {
-		var.value(newValue);
+		var.setValue(newValue);
 	}
 
 	public static <T> void setNonLocalVariable(ClosedVariable<ClosedVariable<T>> target, T value) {
