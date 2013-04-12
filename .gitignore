@@ -1,2 +1,4 @@
 *.class
 *.jar
+#ignore the target folder to prevent us from checking it in
+target/
