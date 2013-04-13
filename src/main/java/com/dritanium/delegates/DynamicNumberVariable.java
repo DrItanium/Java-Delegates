@@ -26,8 +26,11 @@
 package com.dritanium.delegates;
 
 /**
- *
- * @author jwscoggins
+ * A dynamic variable that stores a Number. This class is not meant to be 
+ * used directly.
+ * @author Joshua Scoggins 
+ * @param <N> An object that extends java.lang.Number and implements 
+ * java.lang.Comparable
  */
 public class DynamicNumberVariable<N extends Number&Comparable> extends DynamicVariable<N> implements Comparable<DynamicNumberVariable<N>> {
 	public DynamicNumberVariable(String name, N value, boolean isReadonly) {
