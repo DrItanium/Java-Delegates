@@ -35,7 +35,4 @@ public interface IntelligentDelegate extends Delegate {
 	public boolean checkInput(Object[] input);
 	public boolean registerArgument(int index, Class type);
 	public Class getArgumenInfo(int index);
-	public Class getReturnType();
-	public void setReturnType(Class input);
-	public boolean returnsNothing();
 }
