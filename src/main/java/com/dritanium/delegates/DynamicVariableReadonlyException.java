@@ -24,6 +24,11 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
+/**
+ * A special exception that is raised when an attempt is made to write to a 
+ * dynamic variable that is marked as readonly.
+ * @author Joshua Scoggins 
+ */
 public class DynamicVariableReadonlyException extends RuntimeException {
 	public DynamicVariableReadonlyException() {
 		super();
