@@ -23,7 +23,7 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
-package com.dritanium.delegates;
+package com.dritanium.indirection;
 /**
  * Stores an indirect reference to an indirect reference. 
  * Use this class to close over values that are multiple levels away from the 

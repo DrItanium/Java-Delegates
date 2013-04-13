@@ -25,6 +25,8 @@
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
 
+import com.dritanium.indirection.NonLocalClosure;
+
 /**
  * An interface that represents a delegate body
  * @author Joshua Scoggins 

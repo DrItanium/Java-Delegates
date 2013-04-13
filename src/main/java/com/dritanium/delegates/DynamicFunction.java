@@ -26,7 +26,7 @@
 package com.dritanium.delegates;
 import com.dritanium.delegates.Delegate;
 import com.dritanium.delegates.DelegateBody;
-import com.dritanium.delegates.NonLocalClosure;
+import com.dritanium.indirection.NonLocalClosure;
 import static com.dritanium.delegates.FunctionalOperations.*;
 
 /**
