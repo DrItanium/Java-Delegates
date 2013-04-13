@@ -26,8 +26,8 @@
 package com.dritanium.delegates;
 
 /**
- *
- * @author jwscoggins
+ * A dynamic variable that stores a boolean
+ * @author Joshua Scoggins 
  */
 public class DynamicBooleanVariable extends DynamicVariable<Boolean> {
 	public boolean booleanValue() {
