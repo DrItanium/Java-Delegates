@@ -25,10 +25,16 @@
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
 
-import java.util.*;
 import static com.dritanium.delegates.FunctionalOperations.*;
+import java.util.*;
 
-public abstract class DynamicDelegateBase extends Hashtable<String, Object> implements DynamicDelegate {
+
+/**
+ * The base class used to define a dynamic delegate. This class is meant to be 
+ * used directly through a new abstract instance. 
+ * @author Joshua Scoggins 
+ */
+public abstract class DynamicDelegateBase extends HashMap<String, Object> implements DynamicDelegate {
 
    public DynamicDelegateBase() {
       initVariables();
@@ -105,6 +111,7 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
    }
 
    public abstract DynamicDelegate copy();
+	@Override
    public abstract Object clone();
 
    public Set<String> getNames() {
