@@ -57,11 +57,11 @@ public abstract class AbstractIntelligentDelegate implements IntelligentDelegate
 		}
 	}
 	
-	public Class getArgumenInfo(int index) {
+	public Class getArgument(int index) {
 		return args[index];
 	}
 
-	public void registerArgumentInfo(int index, Class value) {
+	public void registerArgument(int index, Class value) {
 		args[index] = value;
 	}
 	

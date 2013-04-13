@@ -33,6 +33,6 @@ package com.dritanium.delegates;
 public interface IntelligentDelegate extends Delegate {
 	public int getArgumentCount();
 	public boolean checkInput(Object[] input);
-	public boolean registerArgument(int index, Class type);
-	public Class getArgumenInfo(int index);
+	public void registerArgument(int index, Class type);
+	public Class getArgument(int index);
 }
