@@ -34,7 +34,7 @@ import static com.dritanium.delegates.FunctionalOperations.*;
  * @author Joshua Scoggins 
  * @param <ReturnType> The type of the return type container
  */
-public class DynamicFunction<ReturnType> implements Runnable {
+public class DynamicFunction<ReturnType> implements Delegate {
 
 	private DelegateBody<ReturnType> body;
 	private Delegate functor;
