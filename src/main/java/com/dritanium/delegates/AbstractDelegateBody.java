@@ -24,9 +24,14 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
-import java.util.*;
 import static com.dritanium.delegates.FunctionalOperations.*;
 
+/**
+ * An implementation of the DelegateBody interface.
+ * This class is meant to be used directly in a new instance.
+ * @author Joshua Scoggins 
+ * @param <T>  The type of the value stored in the return container
+ */
 public abstract class AbstractDelegateBody<T> implements DelegateBody<T> {
 
 	private NonLocalClosure<T> returnContainer;
