@@ -30,8 +30,8 @@
 package com.dritanium.delegates;
 
 /**
- *
- * @author jwscoggins
+ * A dynamic variable that stores an int
+ * @author Joshua Scoggins 
  */
 public class DynamicIntegerVariable extends DynamicNumberVariable<Integer> {
 	public DynamicIntegerVariable(String name, Integer value, boolean isReadonly) {
