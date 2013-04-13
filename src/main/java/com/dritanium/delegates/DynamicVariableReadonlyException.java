@@ -24,7 +24,7 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
-public class DynamicVariableReadonlyException extends Exception {
+public class DynamicVariableReadonlyException extends RuntimeException {
 	public DynamicVariableReadonlyException() {
 		super();
 	}
