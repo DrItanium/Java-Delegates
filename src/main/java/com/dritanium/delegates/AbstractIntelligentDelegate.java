@@ -48,7 +48,7 @@ public abstract class AbstractIntelligentDelegate implements IntelligentDelegate
 			return false;
 		} else {
 			for(int i = 0; i < getArgumentCount(); i++) {
-				Class desiredType = args[i].getClass();
+				Class desiredType = args[i];
 				if(!desiredType.isInstance(input[i])) {
 					return false;
 				}
