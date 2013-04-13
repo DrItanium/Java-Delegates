@@ -32,12 +32,17 @@ public final class FunctionalOperations {
 	public static <T> T as(Object value) {
 		return (T) value; //REALLY UNSAFE
 	}
-
+	public static <T> T car(List<T> input) {
+		return first(input);
+	}
 	public static <T> List<T> cdr(List<T> input) {
+		return rest(input);
+	}
+	public static <T> List<T> rest(List<T> input) {
 		return input.size() <= 1 ? new Vector<T>(0) : input.subList(1, input.size());
 	}
 
-	public static <T> T car(List<T> input) {
+	public static <T> T first(List<T> input) {
 		return input.isEmpty() ? null : input.get(0);
 	}
 
