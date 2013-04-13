@@ -24,6 +24,12 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
+/**
+ * Represnts a layer of indirection that is used to provide access to variables 
+ * outside a given instance. 
+ * @author Joshua Scoggins 
+ * @param <T>  The type of the value stored in the Closure.
+ */
 public class Closure<T> {
 
 	private T value;
@@ -38,10 +44,6 @@ public class Closure<T> {
 
 	public Closure(T value) {
 		setValue(value);
-	}
-
-	public Closure(Closure<T> other) {
-		this(other.getValue());
 	}
 
 	@Override
