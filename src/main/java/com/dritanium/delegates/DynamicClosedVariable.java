@@ -8,7 +8,10 @@ package com.dritanium.delegates;
  * Provides a quick way to define ClosedVariables that contain a DynamicVariable 
  * @author jwscoggins
  */
-public class ClosedDynamicVariable extends ClosedVariable<DynamicVariable> {
+public class DynamicClosedVariable extends ClosedVariable<DynamicVariable> {
+	public void setName(String name) {
+		getValue().setName((name));
+	}
 	public String getName() {
 		return super.getValue().getName();
 	}
@@ -18,13 +21,13 @@ public class ClosedDynamicVariable extends ClosedVariable<DynamicVariable> {
 	public boolean isReadonly() {
 		return super.getValue().isReadonly();
 	}
-	public ClosedDynamicVariable(DynamicVariable dv) {
+	public DynamicClosedVariable(DynamicVariable dv) {
 		super(dv);
 	}	
-	public ClosedDynamicVariable(String name, Object value) {
+	public DynamicClosedVariable(String name, Object value) {
 		this(new DynamicVariable(name, value, true));
 	}
-	public ClosedDynamicVariable(ClosedDynamicVariable dcv) {
+	public DynamicClosedVariable(DynamicClosedVariable dcv) {
 		super((ClosedVariable<DynamicVariable>)dcv);
 	}
 
