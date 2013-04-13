@@ -25,6 +25,11 @@
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
 
+/**
+ * An interface that represents a delegate body
+ * @author Joshua Scoggins 
+ * @param <T> The type of the data store in the return container. 
+ */
 public interface DelegateBody<T> {
 	void setReturnContainer(NonLocalClosure<T> returnContainer);
 	public NonLocalClosure<T> getReturnContainer();
