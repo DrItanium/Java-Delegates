@@ -26,8 +26,8 @@
 package com.dritanium.delegates;
 
 /**
- *
- * @author jwscoggins
+ * A dynamic variable that stores a float
+ * @author Joshua Scoggins
  */
 public class DynamicFloatVariable extends DynamicNumberVariable<Float>{
 	public DynamicFloatVariable(String name, Float value, boolean isReadonly) {
