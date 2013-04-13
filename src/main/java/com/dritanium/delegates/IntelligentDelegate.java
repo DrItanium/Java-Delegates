@@ -37,4 +37,5 @@ public interface IntelligentDelegate extends Delegate {
 	public Class getArgumenInfo(int index);
 	public Class getReturnType();
 	public void setReturnType(Class input);
+	public boolean returnsNothing();
 }
