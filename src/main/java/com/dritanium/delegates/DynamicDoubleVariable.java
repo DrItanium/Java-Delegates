@@ -26,8 +26,8 @@
 package com.dritanium.delegates;
 
 /**
- *
- * @author jwscoggins
+ * A dynamic variable that stores a double
+ * @author Joshua Scoggins 
  */
 public class DynamicDoubleVariable extends DynamicNumberVariable<Double> {
 	public DynamicDoubleVariable(String name, Double value, boolean isReadonly) {
