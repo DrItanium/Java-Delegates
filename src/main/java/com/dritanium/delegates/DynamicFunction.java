@@ -24,10 +24,8 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
-import com.dritanium.delegates.Delegate;
-import com.dritanium.delegates.DelegateBody;
-import com.dritanium.indirection.NonLocalClosure;
 import static com.dritanium.delegates.FunctionalOperations.*;
+import com.dritanium.indirection.NonLocalClosure;
 
 /**
  * A wrapper around the different components of the delegates library
