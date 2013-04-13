@@ -37,8 +37,8 @@ public class ClosureTest extends TestCase {
 		Delegate d = new Delegate() {
 			//close over the counter indirectly, this will make it
 			//modifiable
-			final NonLocalClosure<Integer> counter = new NonLocalClosure<Integer>(count);
-			final NonLocalClosure<Integer> outputStorage = new NonLocalClosure<Integer>(output);
+			NonLocalClosure<Integer> counter = new NonLocalClosure<Integer>(count);
+			NonLocalClosure<Integer> outputStorage = new NonLocalClosure<Integer>(output);
 			public Object invoke(Object[] input) {
 				//take in zero args
 				if(input.length > 0) {
