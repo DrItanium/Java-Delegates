@@ -26,8 +26,8 @@
 package com.dritanium.delegates;
 
 /**
- *
- * @author jwscoggins
+ * A dynamic variable that stores a long.
+ * @author Joshua Scoggins 
  */
 public class DynamicLongVariable extends DynamicNumberVariable<Long> {
 	public DynamicLongVariable(String name, Long value, boolean isReadonly) {
