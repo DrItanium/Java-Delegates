@@ -26,7 +26,7 @@
 package com.dritanium.delegates;
 import java.util.*;
 import java.lang.*;
-public class FunctionalOperations {
+public final class FunctionalOperations {
 	private FunctionalOperations() { }
 
 	public static <T> T as(Object value) {
