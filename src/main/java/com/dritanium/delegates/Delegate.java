@@ -24,7 +24,13 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
-
+/**
+ * The basic interface for the entire library. A delegate is an interface that
+ * contains a single method called invoke. This method takes in a series of inputs
+ * and returns a value. It extends from Runnable and requires other mechanisms
+ * to retrieve the result from execution.
+ * @author Joshua Scoggins 
+ */
 public interface Delegate extends Runnable {
 	public Object invoke(Object[] input);
 }
