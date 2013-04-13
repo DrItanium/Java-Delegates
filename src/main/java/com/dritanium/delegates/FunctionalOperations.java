@@ -24,6 +24,7 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins.
 package com.dritanium.delegates;
+import com.dritanium.indirection.DynamicVariableReadonlyException;
 import java.util.*;
 /**
  * A static class that contains a list of methods used to make using delegates

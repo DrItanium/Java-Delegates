@@ -25,6 +25,7 @@
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
 
+import com.dritanium.indirection.DynamicVariableReadonlyException;
 import java.util.*;
 /**
  * An interface that represents the wrapper over the execution portion of a 

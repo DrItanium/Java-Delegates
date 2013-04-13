@@ -26,6 +26,7 @@
 package com.dritanium.delegates;
 
 import static com.dritanium.delegates.FunctionalOperations.*;
+import com.dritanium.indirection.DynamicVariableReadonlyException;
 import java.util.*;
 
 
