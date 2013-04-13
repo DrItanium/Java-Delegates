@@ -72,6 +72,10 @@ public class IntelligentDelegateTest extends TestCase {
 			caughtIncorrectArgs = true;
 		}
 		assertTrue("Incorrect arguments were found by delegate", caughtIncorrectArgs);
+		test.setInput(new Object[] { 2, 2 });
+		test.run();
+		result = (Integer)test.getResult();
+		assertEquals("(run) 2 + 2 = 4", 4, result.intValue());
 
 	}
 }
