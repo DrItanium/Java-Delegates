@@ -26,17 +26,22 @@
 package com.dritanium.delegates;
 import static com.dritanium.delegates.FunctionalOperations.*;
 
-public class DynamicFunction<T> implements Runnable {
+/**
+ * A wrapper around the different components of the delegates library
+ * @author Joshua Scoggins 
+ * @param <ReturnType> The type of the return type container
+ */
+public class DynamicFunction<ReturnType> implements Runnable {
 
-	private DelegateBody<T> body;
+	private DelegateBody<ReturnType> body;
 	private Delegate functor;
 	private Object[] arguments;
 
-	public NonLocalClosure<T> getReturnContainer() {
+	public NonLocalClosure<ReturnType> getReturnContainer() {
 		return body.getReturnContainer();
 	}
 
-	public void setReturnContainer(NonLocalClosure<T> returnContainer) {
+	public void setReturnContainer(NonLocalClosure<ReturnType> returnContainer) {
 		body.setReturnContainer(returnContainer);
 	}
 
@@ -48,15 +53,15 @@ public class DynamicFunction<T> implements Runnable {
 		this.functor = functor;
 	}
 
-	public DelegateBody<T> getBody() {
+	public DelegateBody<ReturnType> getBody() {
 		return body;
 	}
 
-	public void setBody(DelegateBody<T> body) {
+	public void setBody(DelegateBody<ReturnType> body) {
 		this.body = body;
 	}
 
-	public T getReturnContainerValue() {
+	public ReturnType getReturnContainerValue() {
 		return getReturnContainer().getActualValue();
 	}
 
@@ -68,15 +73,15 @@ public class DynamicFunction<T> implements Runnable {
 		this.arguments = arguments;
 	}
 
-	public DynamicFunction(DelegateBody<T> body, String[] variables, 
-			NonLocalClosure<T> returnContainer) {
+	public DynamicFunction(DelegateBody<ReturnType> body, String[] variables, 
+			NonLocalClosure<ReturnType> returnContainer) {
 		setBody(body);
 		setFunctor(defun(variables(variables), body));
 		setReturnContainer(returnContainer);
 	}
 
-	public DynamicFunction(DelegateBody<T> body, String[] variables) {
-		this(body, variables, new NonLocalClosure<T>());
+	public DynamicFunction(DelegateBody<ReturnType> body, String[] variables) {
+		this(body, variables, new NonLocalClosure<ReturnType>());
 	}
 
 	public Object invoke(Object[] args) {
