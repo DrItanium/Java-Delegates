@@ -24,6 +24,13 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
+/**
+ * Stores an indirect reference to an indirect reference. 
+ * Use this class to close over values that are multiple levels away from the 
+ * target usage. 
+ * @author Joshua Scoggins 
+ * @param <T> The type of the object stored in this Closure
+ */
 public class NonLocalClosure<T> extends Closure<Closure<T>> {
 	public T getActualValue() {
 		return getValue().getValue();
