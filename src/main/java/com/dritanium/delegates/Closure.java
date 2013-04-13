@@ -24,7 +24,7 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
-public class ClosedVariable<T> {
+public class Closure<T> {
 
 	private T value;
 
@@ -36,11 +36,11 @@ public class ClosedVariable<T> {
 		this.value = value;
 	}
 
-	public ClosedVariable(T value) {
+	public Closure(T value) {
 		setValue(value);
 	}
 
-	public ClosedVariable(ClosedVariable<T> other) {
+	public Closure(Closure<T> other) {
 		this(other.getValue());
 	}
 

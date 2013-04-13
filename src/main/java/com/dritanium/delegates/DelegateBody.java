@@ -26,8 +26,8 @@
 package com.dritanium.delegates;
 
 public interface DelegateBody<T> {
-	void setReturnContainer(NonLocalClosedVariable<T> returnContainer);
-	public NonLocalClosedVariable<T> getReturnContainer();
+	void setReturnContainer(NonLocalClosure<T> returnContainer);
+	public NonLocalClosure<T> getReturnContainer();
 	public Object invoke(DynamicDelegate localVariables);
 	public void run(DynamicDelegate localVariables);
 }

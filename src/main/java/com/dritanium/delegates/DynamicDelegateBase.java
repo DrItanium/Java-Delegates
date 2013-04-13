@@ -43,11 +43,11 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
          if (var == null) {
             put(str, null);
          }
-         if (var instanceof NonLocalClosedVariable) {
-            NonLocalClosedVariable v = new NonLocalClosedVariable((NonLocalClosedVariable) var);
+         if (var instanceof NonLocalClosure) {
+            NonLocalClosure v = new NonLocalClosure((NonLocalClosure) var);
             put(str, v);
-         } else if (var instanceof ClosedVariable) {
-            ClosedVariable v = new ClosedVariable((ClosedVariable) var);
+         } else if (var instanceof Closure) {
+            Closure v = new Closure((Closure) var);
             put(str, v);
          } else {
             put(str, var);
@@ -61,7 +61,7 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
       if (dynamicVariableExists(name)) {
          return false;
       }
-      Object var = readonly ? new ClosedVariable(value) : new NonLocalClosedVariable(value);
+      Object var = readonly ? new Closure(value) : new NonLocalClosure(value);
       put(name, var);
       return true;
    }
@@ -73,7 +73,7 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
    private boolean isReadonly(String name) {
       try {
          Object value = getDynamicVariable(name);
-         return !(value instanceof NonLocalClosedVariable);
+         return !(value instanceof NonLocalClosure);
       } catch (NoSuchElementException n) {
          return false;
       }
@@ -81,7 +81,7 @@ public abstract class DynamicDelegateBase extends Hashtable<String, Object> impl
 
    public void setDynamicVariable(String name, Object value) throws DynamicVariableReadonlyException {
       if (!isReadonly(name)) {
-         NonLocalClosedVariable oldValue = (NonLocalClosedVariable) getDynamicVariable(name);
+         NonLocalClosure oldValue = (NonLocalClosure) getDynamicVariable(name);
          oldValue.setActualValue(value);
       } else {
          throw new DynamicVariableReadonlyException();

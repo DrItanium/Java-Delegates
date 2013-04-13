@@ -29,17 +29,17 @@ import static com.dritanium.delegates.FunctionalOperations.*;
 
 public abstract class AbstractDelegateBody<T> implements DelegateBody<T> {
 
-	private NonLocalClosedVariable<T> returnContainer;
+	private NonLocalClosure<T> returnContainer;
 
-	public NonLocalClosedVariable<T> getReturnContainer() {
+	public NonLocalClosure<T> getReturnContainer() {
 		return returnContainer;
 	}
 
-	public void setReturnContainer(NonLocalClosedVariable<T> returnContainer) {
+	public void setReturnContainer(NonLocalClosure<T> returnContainer) {
 		this.returnContainer = returnContainer;
 	}
 
-	public AbstractDelegateBody(NonLocalClosedVariable<T> returnValue) {
+	public AbstractDelegateBody(NonLocalClosure<T> returnValue) {
 		setReturnContainer(returnValue);
 	}
 

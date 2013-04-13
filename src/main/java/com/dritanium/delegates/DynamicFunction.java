@@ -32,11 +32,11 @@ public class DynamicFunction<T> implements Runnable {
 	private Delegate functor;
 	private Object[] arguments;
 
-	public NonLocalClosedVariable<T> getReturnContainer() {
+	public NonLocalClosure<T> getReturnContainer() {
 		return body.getReturnContainer();
 	}
 
-	public void setReturnContainer(NonLocalClosedVariable<T> returnContainer) {
+	public void setReturnContainer(NonLocalClosure<T> returnContainer) {
 		body.setReturnContainer(returnContainer);
 	}
 
@@ -69,14 +69,14 @@ public class DynamicFunction<T> implements Runnable {
 	}
 
 	public DynamicFunction(DelegateBody<T> body, String[] variables, 
-			NonLocalClosedVariable<T> returnContainer) {
+			NonLocalClosure<T> returnContainer) {
 		setBody(body);
 		setFunctor(defun(variables(variables), body));
 		setReturnContainer(returnContainer);
 	}
 
 	public DynamicFunction(DelegateBody<T> body, String[] variables) {
-		this(body, variables, new NonLocalClosedVariable<T>());
+		this(body, variables, new NonLocalClosure<T>());
 	}
 
 	public Object invoke(Object[] args) {

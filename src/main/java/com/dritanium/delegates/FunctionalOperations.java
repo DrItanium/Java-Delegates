@@ -47,7 +47,7 @@ public final class FunctionalOperations {
 	}
 	
 	public static void let(DynamicDelegate function, Object[]... dynamicVariables) {
-		//final NonLocalClosedVariable<T> cV0 = new NonLocalClosedVariable<T>(v0);
+		//final NonLocalClosure<T> cV0 = new NonLocalClosure<T>(v0);
 		if(dynamicVariables.length == 1) {
 			Object[] target = dynamicVariables[0];
 			function.registerDynamicVariable(
@@ -66,7 +66,7 @@ public final class FunctionalOperations {
 	}
 	
 	public static <T> T ldarg(DynamicDelegate vars, String name) {
-		return ((NonLocalClosedVariable<T>) vars.getDynamicVariable(name)).getActualValue();
+		return ((NonLocalClosure<T>) vars.getDynamicVariable(name)).getActualValue();
 	}
 	
 	public static int ldarg_i4(DynamicDelegate var, String name) {
@@ -126,8 +126,8 @@ public final class FunctionalOperations {
 	}
 	
 	public static Delegate defun(Object[][] args, DelegateBody body) {
-		final NonLocalClosedVariable<Object[][]> arguments = closeOverNonLocal(args);
-		final NonLocalClosedVariable<DelegateBody> fn = closeOverNonLocal(body);
+		final NonLocalClosure<Object[][]> arguments = closeOverNonLocal(args);
+		final NonLocalClosure<DelegateBody> fn = closeOverNonLocal(body);
 		return new DynamicDelegateBase() {
 			
 			Hashtable<Integer, String> reference;
@@ -148,7 +148,7 @@ public final class FunctionalOperations {
 			@Override
 			public Object clone() {
 				DynamicDelegateBase bn = (DynamicDelegateBase) this;
-				final ClosedVariable<DynamicDelegateBase> _fn = closeOver(bn);
+				final Closure<DynamicDelegateBase> _fn = closeOver(bn);
 				return new DynamicDelegateBase(this) {
 					
 					@Override
@@ -255,24 +255,24 @@ public final class FunctionalOperations {
 		return dynamicVariable(name, null);
 	}
 	
-	public static <T> ClosedVariable<T> closeOver(T value) {
-		return new ClosedVariable<T>(value);
+	public static <T> Closure<T> closeOver(T value) {
+		return new Closure<T>(value);
 	}
 	
-	public static <T> NonLocalClosedVariable<T> closeOverNonLocal(ClosedVariable<T> value) {
-		return new NonLocalClosedVariable<T>(value);
+	public static <T> NonLocalClosure<T> closeOverNonLocal(Closure<T> value) {
+		return new NonLocalClosure<T>(value);
 	}
 	
-	public static <T> NonLocalClosedVariable<T> closeOverNonLocal(T value) {
-		return new NonLocalClosedVariable<T>(value);
+	public static <T> NonLocalClosure<T> closeOverNonLocal(T value) {
+		return new NonLocalClosure<T>(value);
 	}
 	
-	public static <T> void setClosedVariable(ClosedVariable<T> var, T newValue) {
+	public static <T> void setClosedVariable(Closure<T> var, T newValue) {
 		var.setValue(newValue);
 	}
 	
-	public static <T> void setNonLocalVariable(ClosedVariable<ClosedVariable<T>> target, T value) {
-		ClosedVariable<T> inner = target.getValue();
+	public static <T> void setNonLocalVariable(Closure<Closure<T>> target, T value) {
+		Closure<T> inner = target.getValue();
 		setClosedVariable(inner, value);
 	}
 }

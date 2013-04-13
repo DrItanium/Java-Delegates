@@ -24,7 +24,7 @@
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
-public class NonLocalClosedVariable<T> extends ClosedVariable<ClosedVariable<T>> {
+public class NonLocalClosure<T> extends Closure<Closure<T>> {
 	public T getActualValue() {
 		return getValue().getValue();
 	}
@@ -33,19 +33,19 @@ public class NonLocalClosedVariable<T> extends ClosedVariable<ClosedVariable<T>>
 		getValue().setValue(value);
 	}
 
-	public NonLocalClosedVariable(ClosedVariable<T> innerVar) {
+	public NonLocalClosure(Closure<T> innerVar) {
 		super(innerVar);
 	}
 
-	public NonLocalClosedVariable() {
+	public NonLocalClosure() {
 		this((T) new Object());
 	}
 
-	public NonLocalClosedVariable(NonLocalClosedVariable<T> other) {
-		this(new ClosedVariable(other.getValue()));
+	public NonLocalClosure(NonLocalClosure<T> other) {
+		this(new Closure(other.getValue()));
 	}
 
-	public NonLocalClosedVariable(T value) {
-		this(new ClosedVariable<T>(value));
+	public NonLocalClosure(T value) {
+		this(new Closure<T>(value));
 	}
 }
