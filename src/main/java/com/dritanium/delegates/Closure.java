@@ -30,7 +30,7 @@ package com.dritanium.delegates;
  * @author Joshua Scoggins 
  * @param <T>  The type of the value stored in the Closure.
  */
-public class Closure<T> {
+public class Closure<T> implements Cloneable{
 
 	private T value;
 
@@ -44,6 +44,14 @@ public class Closure<T> {
 
 	public Closure(T value) {
 		setValue(value);
+	}
+	/**
+	 * Does a shallow copy of the current closure. The value stored in the
+	 * closure is not cloned. 
+	 * @return A shallow copy of the Closure.
+	 */
+	public Object clone() {
+		return new Closure(this.getValue());
 	}
 
 	@Override

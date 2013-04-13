@@ -48,8 +48,9 @@ public class NonLocalClosure<T> extends Closure<Closure<T>> {
 		this((T) new Object());
 	}
 
-	public NonLocalClosure(NonLocalClosure<T> other) {
-		this(new Closure(other.getValue()));
+	@Override
+	public Object clone() {
+		return new NonLocalClosure(this.getActualValue());
 	}
 
 	public NonLocalClosure(T value) {
