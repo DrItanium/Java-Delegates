@@ -26,8 +26,8 @@
 package com.dritanium.delegates;
 
 /**
- *
- * @author jwscoggins
+ * A dynamic variable that stores a string
+ * @author Joshua Scoggins 
  */
 public class DynamicStringVariable extends DynamicVariable<String> implements Comparable<DynamicStringVariable> {
 	public int length() {
