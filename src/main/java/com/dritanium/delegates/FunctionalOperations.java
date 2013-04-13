@@ -25,7 +25,11 @@
 //or implied, of Joshua Scoggins.
 package com.dritanium.delegates;
 import java.util.*;
-import java.lang.*;
+/**
+ * A static class that contains a list of methods used to make using delegates
+ * easier. This class is meant to be used in combination with import static.
+ * @author Joshua Scoggins 
+ */
 public final class FunctionalOperations {
 	private FunctionalOperations() { }
 	
