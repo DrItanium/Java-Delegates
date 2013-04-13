@@ -26,8 +26,8 @@
 package com.dritanium.delegates;
 
 /**
- * A class that wraps over the Object[] tuple previously used to declare dynamic
- * variables.
+ * A class representing a key/value pair used to define dynamic variables that 
+ * can be accessed at runtime. 
  * @author Joshua Scoggins aka DrItanium
  */
 public class DynamicVariable<T> implements Cloneable{
