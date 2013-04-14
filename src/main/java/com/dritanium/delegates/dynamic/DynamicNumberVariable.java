@@ -22,17 +22,34 @@
 //
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
-//or implied, of Joshua Scoggins. 
-package com.dritanium.delegates;
+//or implied, of Joshua Scoggins.
+package com.dritanium.delegates.dynamic;
 
 /**
- * An interface that represents a delegate body
+ * A dynamic variable that stores a Number. This class is not meant to be 
+ * used directly.
  * @author Joshua Scoggins 
- * @param <T> The type of the data store in the return container. 
+ * @param <N> An object that extends java.lang.Number and implements 
+ * java.lang.Comparable
  */
-public interface DelegateBody<T> {
-	void setReturnContainer(NonLocalClosure<T> returnContainer);
-	public NonLocalClosure<T> getReturnContainer();
-	public Object invoke(DynamicDelegate localVariables);
-	public void run(DynamicDelegate localVariables);
+public class DynamicNumberVariable<N extends Number&Comparable> extends DynamicVariable<N> implements Comparable<DynamicNumberVariable<N>> {
+	public DynamicNumberVariable(String name, N value, boolean isReadonly) {
+		super(name, value, isReadonly);
+	}
+	public DynamicNumberVariable(String name, N value) {
+		super(name, value);
+	}
+	public DynamicNumberVariable(String name) {
+		super(name);
+	}
+	public DynamicNumberVariable(DynamicNumberVariable var) {
+		super(var);
+	}
+	@Override
+	public Object clone() {
+		return new DynamicNumberVariable(this);
+	}
+	public int compareTo(DynamicNumberVariable<N> n) {
+		return this.getValue().compareTo(n.getValue());
+	}
 }

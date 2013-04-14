@@ -23,26 +23,38 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins.
-package com.dritanium.indirection;
+package com.dritanium.delegates.dynamic;
 
 /**
- * A dynamic variable that stores a double
+ * A dynamic variable that stores a string
  * @author Joshua Scoggins 
  */
-public class DynamicDoubleVariable extends DynamicNumberVariable<Double> {
-	public DynamicDoubleVariable(String name, Double value, boolean isReadonly) {
+public class DynamicStringVariable extends DynamicVariable<String> implements Comparable<DynamicStringVariable> {
+	public int length() {
+		return getValue().length();
+	}
+	public char charAt(int index) {
+		return getValue().charAt(index);
+	}
+	public DynamicStringVariable(String name, String value, boolean isReadonly) {
 		super(name, value, isReadonly);
 	}	
-	public DynamicDoubleVariable(String name, Double value) {
+	public DynamicStringVariable(String name, String value) {
 		super(name, value);
 	}
-	public DynamicDoubleVariable(String name) {
+	public DynamicStringVariable(String name) {
 		super(name);
 	}
-	public DynamicDoubleVariable(DynamicDoubleVariable dv) {
+	public DynamicStringVariable(DynamicStringVariable dv) {
 		super(dv);
 	}
 	public Object clone() {
-		return new DynamicDoubleVariable(this);
+		return new DynamicStringVariable(this);
+	}
+	public int compareTo(DynamicStringVariable other) {
+		return getValue().compareTo(other.getValue());
+	}
+	public int compareToIgnoreCase(DynamicStringVariable other) {
+		return getValue().compareToIgnoreCase(other.getValue());
 	}
 }

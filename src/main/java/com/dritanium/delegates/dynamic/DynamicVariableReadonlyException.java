@@ -22,31 +22,27 @@
 //
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
-//or implied, of Joshua Scoggins.
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.dritanium.indirection;
-
+//or implied, of Joshua Scoggins. 
+package com.dritanium.delegates.dynamic;
 /**
- * A dynamic variable that stores an int
+ * A special exception that is raised when an attempt is made to write to a 
+ * dynamic variable that is marked as readonly.
  * @author Joshua Scoggins 
  */
-public class DynamicIntegerVariable extends DynamicNumberVariable<Integer> {
-	public DynamicIntegerVariable(String name, Integer value, boolean isReadonly) {
-		super(name, value, isReadonly);
+public class DynamicVariableReadonlyException extends RuntimeException {
+	public DynamicVariableReadonlyException() {
+		super();
 	}
-	public DynamicIntegerVariable(String name, Integer value) {
-		super(name, value);
+
+	public DynamicVariableReadonlyException(String message) {
+		super(message);
 	}
-	public DynamicIntegerVariable(String name) {
-		super(name);
+
+	public DynamicVariableReadonlyException(Throwable cause) {
+		super(cause);
 	}
-	public DynamicIntegerVariable(DynamicIntegerVariable var) {
-		super(var);
-	}
-	public Object clone() {
-		return new DynamicIntegerVariable(this);
+
+	public DynamicVariableReadonlyException(String message, Throwable cause) {
+		super(message, cause);
 	}
 }

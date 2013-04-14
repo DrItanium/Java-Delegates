@@ -22,43 +22,27 @@
 //
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
-//or implied, of Joshua Scoggins. 
-package com.dritanium.delegates;
-import static com.dritanium.delegates.FunctionalOperations.*;
+//or implied, of Joshua Scoggins.
+package com.dritanium.delegates.dynamic;
 
 /**
- * An implementation of the DelegateBody interface.
- * This class is meant to be used directly in a new instance.
+ * A dynamic variable that stores a long.
  * @author Joshua Scoggins 
- * @param <T>  The type of the value stored in the return container
  */
-public abstract class AbstractDelegateBody<T> implements DelegateBody<T> {
-
-	private NonLocalClosure<T> returnContainer;
-
-	public NonLocalClosure<T> getReturnContainer() {
-		return returnContainer;
+public class DynamicLongVariable extends DynamicNumberVariable<Long> {
+	public DynamicLongVariable(String name, Long value, boolean isReadonly) {
+		super(name, value, isReadonly);
+	}	
+	public DynamicLongVariable(String name, Long value) {
+		super(name, value);
 	}
-
-	public void setReturnContainer(NonLocalClosure<T> returnContainer) {
-		this.returnContainer = returnContainer;
+	public DynamicLongVariable(String name) {
+		super(name);
 	}
-
-	public AbstractDelegateBody(NonLocalClosure<T> returnValue) {
-		setReturnContainer(returnValue);
+	public DynamicLongVariable(DynamicLongVariable dv) {
+		super(dv);
 	}
-
-	public AbstractDelegateBody() {
-		this(null);
-	}
-
-	public abstract Object invoke(DynamicDelegate localVariables);
-
-	public void run(DynamicDelegate localVariables) {
-		if (returnContainer == null) {
-			invoke(localVariables);
-		} else {
-			setNonLocalVariable(returnContainer, (T) invoke(localVariables));
-		}
+	public Object clone() {
+		return new DynamicLongVariable(this);
 	}
 }

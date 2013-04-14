@@ -22,26 +22,31 @@
 //
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
-//or implied, of Joshua Scoggins. 
-package com.dritanium.delegates;
+//or implied, of Joshua Scoggins.
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.dritanium.delegates.dynamic;
 
-import com.dritanium.indirection.DynamicVariableReadonlyException;
-import java.util.*;
 /**
- * An interface that represents the wrapper over the execution portion of a 
- * delegate. 
+ * A dynamic variable that stores an int
  * @author Joshua Scoggins 
  */
-public interface DynamicDelegate extends Delegate, Cloneable {
-	public boolean registerDynamicVariable(String name, Object value, boolean readonly);
-	public boolean dynamicVariableExists(String name);
-	public void setDynamicVariable(String name, Object value) throws DynamicVariableReadonlyException;
-	public Object getDynamicVariable(String name);
-	public <T> T getDynamicVariableAsType(String name);
-	public Object invoke(DynamicDelegate localVariables, Object[] input);
-	public Object invoke(DynamicDelegate localVariables);
-	public Object invoke();
-	public DynamicDelegate copy();
-	public Set<String> getNames();
-	public void run(DynamicDelegate localVariables);
+public class DynamicIntegerVariable extends DynamicNumberVariable<Integer> {
+	public DynamicIntegerVariable(String name, Integer value, boolean isReadonly) {
+		super(name, value, isReadonly);
+	}
+	public DynamicIntegerVariable(String name, Integer value) {
+		super(name, value);
+	}
+	public DynamicIntegerVariable(String name) {
+		super(name);
+	}
+	public DynamicIntegerVariable(DynamicIntegerVariable var) {
+		super(var);
+	}
+	public Object clone() {
+		return new DynamicIntegerVariable(this);
+	}
 }

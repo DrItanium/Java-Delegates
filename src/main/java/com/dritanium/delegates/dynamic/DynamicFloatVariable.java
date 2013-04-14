@@ -23,33 +23,27 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins.
-package com.dritanium.indirection;
+package com.dritanium.delegates.dynamic;
 
 /**
- * A dynamic variable that stores a Number. This class is not meant to be 
- * used directly.
- * @author Joshua Scoggins 
- * @param <N> An object that extends java.lang.Number and implements 
- * java.lang.Comparable
+ * A dynamic variable that stores a float
+ * @author Joshua Scoggins
  */
-public class DynamicNumberVariable<N extends Number&Comparable> extends DynamicVariable<N> implements Comparable<DynamicNumberVariable<N>> {
-	public DynamicNumberVariable(String name, N value, boolean isReadonly) {
+public class DynamicFloatVariable extends DynamicNumberVariable<Float>{
+	public DynamicFloatVariable(String name, Float value, boolean isReadonly) {
 		super(name, value, isReadonly);
 	}
-	public DynamicNumberVariable(String name, N value) {
+	public DynamicFloatVariable(String name, Float value) {
 		super(name, value);
 	}
-	public DynamicNumberVariable(String name) {
+	public DynamicFloatVariable(String name) {
 		super(name);
 	}
-	public DynamicNumberVariable(DynamicNumberVariable var) {
-		super(var);
+	public DynamicFloatVariable(DynamicFloatVariable dv) {
+		super(dv);
 	}
 	@Override
 	public Object clone() {
-		return new DynamicNumberVariable(this);
-	}
-	public int compareTo(DynamicNumberVariable<N> n) {
-		return this.getValue().compareTo(n.getValue());
+		return new DynamicFloatVariable(this);
 	}
 }

@@ -23,10 +23,12 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
-package com.dritanium.delegates;
+package com.dritanium.delegates.dynamic;
 
-import static com.dritanium.delegates.FunctionalOperations.*;
-import com.dritanium.indirection.DynamicVariableReadonlyException;
+import com.dritanium.delegates.Closure;
+import com.dritanium.delegates.NonLocalClosure;
+import static com.dritanium.delegates.dynamic.FunctionalOperations.*;
+import com.dritanium.delegates.dynamic.DynamicVariableReadonlyException;
 import java.util.*;
 
 

@@ -22,30 +22,27 @@
 //
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
-//or implied, of Joshua Scoggins.
-package com.dritanium.indirection;
+//or implied, of Joshua Scoggins. 
+package com.dritanium.delegates.dynamic;
 
+import com.dritanium.delegates.Delegate;
+import com.dritanium.delegates.dynamic.DynamicVariableReadonlyException;
+import java.util.*;
 /**
- * A dynamic variable that stores a boolean
+ * An interface that represents the wrapper over the execution portion of a 
+ * delegate. 
  * @author Joshua Scoggins 
  */
-public class DynamicBooleanVariable extends DynamicVariable<Boolean> {
-	public boolean booleanValue() {
-		return getValue().booleanValue();
-	}
-	public DynamicBooleanVariable(String name, Boolean value, boolean isReadonly) {
-		super(name, value, isReadonly);
-	}	
-	public DynamicBooleanVariable(String name, Boolean value) {
-		super(name, value);
-	}
-	public DynamicBooleanVariable(String name) {
-		super(name);
-	}
-	public DynamicBooleanVariable(DynamicBooleanVariable dv) {
-		super(dv);
-	}
-	public Object clone() {
-		return new DynamicBooleanVariable(this);
-	}
+public interface DynamicDelegate extends Delegate, Cloneable {
+	public boolean registerDynamicVariable(String name, Object value, boolean readonly);
+	public boolean dynamicVariableExists(String name);
+	public void setDynamicVariable(String name, Object value) throws DynamicVariableReadonlyException;
+	public Object getDynamicVariable(String name);
+	public <T> T getDynamicVariableAsType(String name);
+	public Object invoke(DynamicDelegate localVariables, Object[] input);
+	public Object invoke(DynamicDelegate localVariables);
+	public Object invoke();
+	public DynamicDelegate copy();
+	public Set<String> getNames();
+	public void run(DynamicDelegate localVariables);
 }

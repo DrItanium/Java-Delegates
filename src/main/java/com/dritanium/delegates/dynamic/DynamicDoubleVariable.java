@@ -23,27 +23,26 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins.
-package com.dritanium.indirection;
+package com.dritanium.delegates.dynamic;
 
 /**
- * A dynamic variable that stores a float
- * @author Joshua Scoggins
+ * A dynamic variable that stores a double
+ * @author Joshua Scoggins 
  */
-public class DynamicFloatVariable extends DynamicNumberVariable<Float>{
-	public DynamicFloatVariable(String name, Float value, boolean isReadonly) {
+public class DynamicDoubleVariable extends DynamicNumberVariable<Double> {
+	public DynamicDoubleVariable(String name, Double value, boolean isReadonly) {
 		super(name, value, isReadonly);
-	}
-	public DynamicFloatVariable(String name, Float value) {
+	}	
+	public DynamicDoubleVariable(String name, Double value) {
 		super(name, value);
 	}
-	public DynamicFloatVariable(String name) {
+	public DynamicDoubleVariable(String name) {
 		super(name);
 	}
-	public DynamicFloatVariable(DynamicFloatVariable dv) {
+	public DynamicDoubleVariable(DynamicDoubleVariable dv) {
 		super(dv);
 	}
-	@Override
 	public Object clone() {
-		return new DynamicFloatVariable(this);
+		return new DynamicDoubleVariable(this);
 	}
 }

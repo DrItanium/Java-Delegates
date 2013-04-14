@@ -23,26 +23,29 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins.
-package com.dritanium.indirection;
+package com.dritanium.delegates.dynamic;
 
 /**
- * A dynamic variable that stores a long.
+ * A dynamic variable that stores a boolean
  * @author Joshua Scoggins 
  */
-public class DynamicLongVariable extends DynamicNumberVariable<Long> {
-	public DynamicLongVariable(String name, Long value, boolean isReadonly) {
+public class DynamicBooleanVariable extends DynamicVariable<Boolean> {
+	public boolean booleanValue() {
+		return getValue().booleanValue();
+	}
+	public DynamicBooleanVariable(String name, Boolean value, boolean isReadonly) {
 		super(name, value, isReadonly);
 	}	
-	public DynamicLongVariable(String name, Long value) {
+	public DynamicBooleanVariable(String name, Boolean value) {
 		super(name, value);
 	}
-	public DynamicLongVariable(String name) {
+	public DynamicBooleanVariable(String name) {
 		super(name);
 	}
-	public DynamicLongVariable(DynamicLongVariable dv) {
+	public DynamicBooleanVariable(DynamicBooleanVariable dv) {
 		super(dv);
 	}
 	public Object clone() {
-		return new DynamicLongVariable(this);
+		return new DynamicBooleanVariable(this);
 	}
 }

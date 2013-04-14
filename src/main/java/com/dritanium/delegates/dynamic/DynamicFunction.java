@@ -23,8 +23,10 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
-package com.dritanium.delegates;
-import static com.dritanium.delegates.FunctionalOperations.*;
+package com.dritanium.delegates.dynamic;
+import com.dritanium.delegates.Delegate;
+import com.dritanium.delegates.NonLocalClosure;
+import static com.dritanium.delegates.dynamic.FunctionalOperations.*;
 
 /**
  * A wrapper around the different components of the delegates library

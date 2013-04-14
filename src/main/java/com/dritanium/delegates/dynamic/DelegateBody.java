@@ -23,26 +23,19 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
-package com.dritanium.indirection;
+package com.dritanium.delegates.dynamic;
+
+import com.dritanium.delegates.NonLocalClosure;
+import com.dritanium.delegates.dynamic.DynamicDelegate;
+
 /**
- * A special exception that is raised when an attempt is made to write to a 
- * dynamic variable that is marked as readonly.
+ * An interface that represents a delegate body
  * @author Joshua Scoggins 
+ * @param <T> The type of the data store in the return container. 
  */
-public class DynamicVariableReadonlyException extends RuntimeException {
-	public DynamicVariableReadonlyException() {
-		super();
-	}
-
-	public DynamicVariableReadonlyException(String message) {
-		super(message);
-	}
-
-	public DynamicVariableReadonlyException(Throwable cause) {
-		super(cause);
-	}
-
-	public DynamicVariableReadonlyException(String message, Throwable cause) {
-		super(message, cause);
-	}
+public interface DelegateBody<T> {
+	void setReturnContainer(NonLocalClosure<T> returnContainer);
+	public NonLocalClosure<T> getReturnContainer();
+	public Object invoke(DynamicDelegate localVariables);
+	public void run(DynamicDelegate localVariables);
 }
