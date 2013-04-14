@@ -25,7 +25,7 @@
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
 /**
- * Represnts a layer of indirection that is used to provide access to variables 
+ * Represents a layer of indirection that is used to provide access to variables 
  * outside a given instance. 
  * @author Joshua Scoggins 
  * @param <T>  The type of the value stored in the Closure.
