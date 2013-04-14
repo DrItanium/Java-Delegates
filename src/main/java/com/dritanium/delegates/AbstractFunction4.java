@@ -53,8 +53,10 @@ public abstract class AbstractFunction4<T0,T1,T2,T3,R> extends DefaultAbstractIn
 		final NonLocalClosure<AbstractFunction4<T0,T1,T2,T3,R>> fn =
 			new NonLocalClosure<AbstractFunction4<T0,T1,T2,T3,R>>(this);
 		return new AbstractFunction3<T0,T1,T2,R>() {
+			T3 closedValue = input.getActualValue();
+			AbstractFunction4<T0,T1,T2,T3,R> func = fn.getActualValue();
 			public R invoke(T0 a0, T1 a1, T2 a2) {
-				return fn.getActualValue().invoke(a0, a1, a2, input.getActualValue());
+				return func.invoke(a0, a1, a2, closedValue);
 			}
 		};
 	}
