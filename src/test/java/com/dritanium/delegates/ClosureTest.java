@@ -4,8 +4,6 @@
  */
 package com.dritanium.delegates;
 
-import com.dritanium.indirection.Closure;
-import com.dritanium.indirection.NonLocalClosure;
 import junit.framework.TestCase;
 
 /**

@@ -28,7 +28,6 @@
  * and open the template in the editor.
  */
 package com.dritanium.delegates;
-import com.dritanium.indirection.NonLocalClosure;
 
 /**
  * A single input function

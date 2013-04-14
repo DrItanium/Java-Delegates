@@ -25,7 +25,6 @@
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
 import static com.dritanium.delegates.FunctionalOperations.*;
-import com.dritanium.indirection.NonLocalClosure;
 
 /**
  * A wrapper around the different components of the delegates library

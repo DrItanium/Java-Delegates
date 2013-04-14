@@ -25,8 +25,6 @@
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
 
-import com.dritanium.indirection.NonLocalClosure;
-
 /**
  * Represents a partial implementation of a four argument function
  * @author Joshua Scoggins 

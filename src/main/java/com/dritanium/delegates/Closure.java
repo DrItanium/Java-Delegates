@@ -23,7 +23,7 @@
 //The views and conclusions contained in the software and documentation are those of the
 //authors and should not be interpreted as representing official policies, either expressed
 //or implied, of Joshua Scoggins. 
-package com.dritanium.indirection;
+package com.dritanium.delegates;
 /**
  * Represnts a layer of indirection that is used to provide access to variables 
  * outside a given instance. 

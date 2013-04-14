@@ -25,8 +25,6 @@
 //or implied, of Joshua Scoggins. 
 package com.dritanium.delegates;
 
-import com.dritanium.indirection.NonLocalClosure;
-import com.dritanium.indirection.Closure;
 import static com.dritanium.delegates.FunctionalOperations.*;
 import com.dritanium.indirection.DynamicVariableReadonlyException;
 import java.util.*;
